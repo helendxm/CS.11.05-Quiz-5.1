@@ -7,10 +7,18 @@ public class Main {
      * int[] myArray2 = {2,4,6,8,10,12,14,16};
      * zip(myArray1, myArray2) → {1,3,5,7,9,2,4,6,8,10,12,14,16}
      */
+
     public static int[] combine(int[] array1, int[] array2) {
+        int[] zip = new int[array1.length + array2.length];
+        for (int i = 0; i < array1.length; i++) {
+            zip[i] = array1[i];
+        }
 
-        return null;
+        for (int i = 0; i < array2.length; i++) {
+            zip[array1.length + i] = array2[i];
+        }
 
+        return zip;
     }
 
     /**
@@ -20,10 +28,15 @@ public class Main {
      * int[] myArray2 = {2,4,6,8,10};
      * zip(myArray1, myArray2) → {1,2,3,4,5,6,7,8,9,10}
      */
+
     public static int[] zip(int[] array1, int[] array2) {
+        int[] zipped = new int[array1.length + array2.length];
 
-        return null;
-
+        for (int i = 0; i < array1.length; i++) {
+            zipped[i * 2] = array1[i];
+            zipped[i * 2 + 1] = array2[i];
+        }
+        return zipped;
     }
 
     /**
@@ -33,10 +46,13 @@ public class Main {
      * int[] myArray2 = {2,4,6,8,10};=
      * product(myArray1, myArray2) → {2,12,30,56,90}
      */
+
     public static int[] product(int[] array1, int[] array2) {
-
-        return null;
-
+        int[] product = new int[array1.length];
+        for (int i = 0; i < product.length; i++){
+            product[i] = array1[i] * array2[i];
+        }
+        return product;
     }
 
     /**
@@ -55,16 +71,27 @@ public class Main {
      * String[] words = {“Christmas”, “IS”, “comInG”, “!”};
      * capitalCount(words) → {1, 2, 2, 0}
      */
+
     public static int[] capitalCount(String[] words) {
+        int[] counts = new int[words.length];
 
-        return null;
+        for (int i = 0; i < words.length; i++) {
+            counts[i] = countCapitalLetters(words[i]);
+        }
 
+        return counts;
     }
 
     public static int countCapitalLetters(String word) {
+        int count = 0;
 
-        return 0;
+        for (int i = 0; i < word.length(); i++) {
+            char currentChar = word.charAt(i);
+            if (Character.isAlphabetic(currentChar) && currentChar >= 'A' && currentChar <= 'Z') {
+                count++;
+            }
+        }
 
+        return count;
     }
-
 }
